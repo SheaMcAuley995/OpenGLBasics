@@ -6,7 +6,7 @@
 int main()
 {
 	context game;
-	game.init(800, 600, "Cheese");
+	game.init(800, 600, "CubeTest");
 
 	vertex triVerts[] =
 	{
@@ -71,12 +71,9 @@ int main()
 	glm::mat4 cam_view = glm::lookAt(glm::vec3(0, 0, -1), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
 	glm::mat4 triangle_model = glm::identity<glm::mat4>();
 
-	glm::vec3 lightDir = glm::vec3(-1, 0, 0);
-
-	//funStuff
-	int red = rand() % 255;
-	int green = rand() % 255;
-	int blue = rand() % 255;
+	glm::vec3 lightDir = glm::vec3(1, 1, 1);
+	
+	//vector4
 
 	int rotx = 0;
 	int roty = 1;
@@ -85,12 +82,8 @@ int main()
 	int timerMax = 25;
 	int timer = timerMax;
 
-	whitePixel[0] = red;
-	whitePixel[1] = green;
-	whitePixel[2] = blue;
-
-	texture newTex = makeTexture(1, 1, 3, whitePixel);
-	texture textTex = loadTexture("me.jpg");
+	texture newTex = makeTexture(1, 1, 4, whitePixel);
+	texture textTex = loadTexture("Triangle.jpg");
 
 	while (!game.shouldClose())
 	{
@@ -107,17 +100,9 @@ int main()
 
 		draw(mvpFragShadTest, triangle);
 
-		//printf("%d\n", timer);
 		timer--;
 		if (timer <= 0) 
 		{
-			red = rand() % 255;
-			green = rand() % 255;
-			blue = rand() % 255;
-
-			whitePixel[0] = red;
-			whitePixel[1] = green;
-			whitePixel[2] = blue;
 			newTex = makeTexture(1, 1, 3, whitePixel);
 			
 			timer = timerMax;

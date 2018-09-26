@@ -79,7 +79,7 @@ Shader makeShader(const char * vertSource, const char * fragSource)
 	glDeleteShader(vert);
 	glDeleteShader(frag);
 
-	//return the shaer object
+	//return the shader object
 	return newShad;
 }
 
